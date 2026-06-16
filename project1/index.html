@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            background: linear-gradient(45deg, #3559af, #756e94);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden
+          
+        }
+        .quote-box{
+            height: 265px;
+            width: 500px;
+            background-color: rgb(126, 142, 189);
+            border-radius: 40px;
+            box-shadow: 4px 5px 5px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .quote{
+            background: linear-gradient(45deg, #b392c3, #6011bb);
+            height: 50px;
+            width: 400px;
+            display: flex;
+            padding: 10px;
+            border-radius: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        button{
+            height: 40px;
+            width: 100px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 4px 5px 5px rgba(0,0,0,0.2);
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .conainer{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="quote-box">
+            <p class="quote"></p>
+        <div>
+            <div>
+           <button id="cpy">Copy</button>
+           <button id="next">New Quote</button>
+        </div>
+    
+    </div>    
+        
+      
+    
+    <script>
+        let para=document.querySelector('.quote');
+        let copy=document.getElementById('cpy');
+        let next=document.getElementById('next');
+        const quotes=[
+            "The only way to do great work is to love what you do. - Steve Jobs",
+            "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
+            "Believe you can and you're halfway there. - Theodore Roosevelt",
+            "Don't watch the clock; do what it does. Keep going. - Sam Levenson",
+            "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt"
+        ];
+        let i=0;
+        next.addEventListener('click',()=>{
+            i=(i+1)%quotes.length;
+            para.innerText=quotes[i];
+        });
+        copy.addEventListener('click',()=>{
+            navigator.clipboard.writeText(para.innerText);
+            alert('Quote copied to clipboard!');
+        });
+    </script>
+</body>
+</html>
